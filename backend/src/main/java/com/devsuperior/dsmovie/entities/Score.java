@@ -4,15 +4,9 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name="tb_score")
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class Score {
 
 	@EmbeddedId
@@ -27,5 +21,33 @@ public class Score {
 	public void setUser(User user) {
 		id.setUser(user);
 	}
+
+	public Score(ScorePK id, Double value) {
+
+		this.id = id;
+		this.value = value;
+	}
+
+	public Score() {
+
+	}
+
+	public ScorePK getId() {
+		return id;
+	}
+
+	public void setId(ScorePK id) {
+		this.id = id;
+	}
+
+	public Double getValue() {
+		return value;
+	}
+
+	public void setValue(Double value) {
+		this.value = value;
+	}
+	
+	
 
 }
